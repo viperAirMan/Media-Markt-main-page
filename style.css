@@ -23,6 +23,19 @@ a:hover{
 
 
 
+/*----first-container-----*/
+.container{
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 
+    'header'
+    'daily'
+    'ads'
+    'footer';
+}
+
+
+
 /* ----header---- */
 .nav-bar{
     grid-area: header;
@@ -36,6 +49,7 @@ a:hover{
     background-color: var(--mediamarkt-dark-red-color);
     padding: 15px;
     z-index: 2;
+
 }
 
 #top-of-the-page a{
@@ -75,6 +89,7 @@ a:hover{
     justify-content:space-between;
     width: auto;
     padding: 15px 5%;
+    position: relative;
 }
 
 #media-markt-logo{
@@ -85,11 +100,11 @@ a:hover{
     font-weight: 500;
 }
 
-#media-markt-logo i{
-    font-size: 9px;
+.fa-registered{
+    font-size: 9px !important;
     position: relative;
-    top: -25px;
-    left: 3px;
+    top: -22px;
+    left: -9px;
 }
 
 #cat{
@@ -105,7 +120,7 @@ a:hover{
     padding: 0px;
     height: fit-content;
     border-radius: 10px;
-    width: 40vw;
+    width: fit-content;
 }
 
 #search input{
@@ -113,13 +128,15 @@ a:hover{
     border: transparent;
     border-radius: 10px;
     font-size: 14px;
+    width: 20vw;
 }
 
 #search button{
-    padding: 15px;
+    padding: 10px;
     border: transparent;
     background-color: #fff;
     border-radius: 10px;
+    font-size: larger;
 }
 
 #search-button:hover{
@@ -196,34 +213,25 @@ a:hover{
 }
 
 .description-of-product{
-    width: 400px;
+    float: left;
+    width: 30vw;
 }
 
-.ads{
-    display: block;
-}
 
 .titel1{
     color: var(--mediamarkt-red-color);
     font-family: 'Archivo Black', sans-serif;
     font-style: italic;
     font-size: 35px;
-    padding-top: 40px;
 }
 
 .subtitel{
     color: black;
     font-weight: lighter;
-    padding-top: 20px;
 }
 
 .description{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:flex-start;
-}
-
-.description span{
+    display: inline-block;
     font-size: 11px;
     font-weight: lighter;
     opacity: 0.3;
@@ -237,41 +245,53 @@ a:hover{
 }
 
 .media-markt-product{
-    display: inline;
     float: right;
     object-fit: cover;
-    width: 60vw;
-    height: 40vh;
-    margin-top: -220px;
+    width: 50%;
+    height: auto;
+    
 }
 
 
 
 /* ----Footer---- */
 .footer{
-    grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 
+    'versand f-header f-header f-header'
+    'kontakt column1 column2 column3'
+    'club sozial-media app-download app-download';
     background-color: rgba(88,80,80);
     color: rgba(255,255,255, 0.7);
     padding: 3% 5%;
+    gap: 50px;
 }
 
 .footer1{
-    width: 25%;
+    grid-area: versand;
 }
 
 .f1p{
     font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.f11{
+    display: flex;
+    justify-content: flex-start;
 }
 
 .f11 i{
-    margin-right: 10px;
     border: 1px solid rgba(255,255,255, 0.7);
     text-align: center;
     border-radius: 5px;
+    margin-right: 25px;
 }
 
-.fa-dhl,
-.fa-ups{
+.fa-brands{
     padding: 5px;
     font-size: 35px;
     width: 60px;
@@ -286,8 +306,8 @@ a:hover{
 
 
 /*--f12--*/
-.f12{
-    margin-top: 150px;
+.kontakt{
+    grid-area: kontakt;
 }
 
 .f121{
@@ -329,11 +349,19 @@ a:hover{
     margin-top: 20px;
 }
 
+.club{
+    grid-area: club;
+    position: relative;
+}
+
 .f14{
-    margin-top: 450px;
     font-family: 'Lexend', sans-serif;
     font-style: italic;
     font-size: x-large;
+    color:rgba(255,255,255, 0.7);
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .f14 h6{
@@ -342,16 +370,200 @@ a:hover{
 
 .f14 h1{
     margin-top: -54px;
+    margin-bottom: 0px;
+}
+
+/* --footer2---*/
+
+.f21{
+    grid-area: f-header;
+}
+
+.f21 p{
+    font-size: 12px;
+    margin-top: 0;
+}
+
+.f21 a{
+    font-size: 35px;
+    color:rgba(255,255,255, 0.7);
+    margin-right: 10px;
+    min-width: 70px;
+    text-align: center;
+    align-items: 45px;
+    line-height: 60px;
+}
+
+.marka{
+    margin-right: 10px;
+    border: 1px solid rgba(255,255,255, 0.7);
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 15px;   
+}
+
+.payment{
+    padding: 16px 12px;
+    vertical-align: 9.5px;
+    font-size: 10px !important;
+    border: 1px solid rgba(255,255,255, 0.7);
+    text-align: center;
+    border-radius: 5px;
+    width: 70px;
+    margin-right: 10px;   
+}
+
+.santander{
+    padding: 16px 22px;
+}
+.vorkasse{
+    padding: 16px 18px;
+}
+
+.giropay{
+    padding: 16px 30px;
 }
 
 
 
-.container{
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    grid-template-areas: 
-    'header'
-    'daily'
-    'ads'
-    'footer';
+/*---f22---*/
+
+.f22{
+    grid-area: column1;
+}
+
+.f2 li{
+    list-style-type: none;
+    line-height: 40px;
+    margin-left: -40px;
+}
+
+.f2 a{
+    text-decoration: none;
+    color:rgba(255,255,255, 0.7);
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+.f23{
+    grid-area: column2;
+}
+
+.f24{
+    grid-area: column3;
+}
+
+.f25{
+    grid-area: sozial-media;
+    display: flex;
+    align-items:flex-end
+}
+
+.f25 a{
+    color: rgba(255,255,255, 0.7);
+    margin-right: -30px;
+}
+
+.f25 a:hover{
+    color: white;
+}
+.f25 i{
+    font-size: 25px;
+}
+
+.f25 i:hover{
+    text-decoration: underline;
+    text-decoration-color: var(--mediamarkt-red-color);
+    text-underline-offset: 8px;
+}
+
+.f26{
+    grid-area: app-download;
+    position: relative;
+    bottom: 0px;
+    margin-top: 50px;
+}
+
+.f26 p{
+    font-size: 13px;
+    font-weight: lighter;
+    position: relative;
+    bottom: 5px;
+}
+
+.f26 i{
+    text-align: center;
+    color:rgba(255,255,255, 0.7);
+    border: 1px solid #000;
+    padding: 5px 12px;
+    background-color: #000;
+    border-radius: 5px;
+}
+
+.f26 i:hover{
+    color: white;
+}
+
+.fa-bag-shopping{
+    vertical-align: 9px;
+    border-top: 12px solid #000 !important;
+    border-bottom: 12px solid #000 !important;
+    margin-left: -1px;
+}
+
+
+
+/*----mediaQueries----*/
+@media (max-width: 1100px){
+    .finanzierung,
+    .links,
+    #cat,
+    #my-markt{
+        position: absolute;
+        right: -100000000px;
+    }
+
+    .fa-bars{
+        position:relative !important;
+        right: 100000000px;
+        font-size: larger;
+    }
+
+    .header{
+        margin: 20px auto 20px 40px ;
+    }    
+}   
+
+@media (max-width: 960px){
+    #search{
+        position: absolute;
+        bottom: 0px;
+        left: 5vw;
+        width: 80vw;
+    }
+    .header{
+        margin-top: 5px;
+        padding-top: 0;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-bottom: 60px;
+
+    }
+
+    #media-markt-logo{
+        margin-right: 15vw;
+        margin-left: -3vw;
+        font-size:x-large;
+    }
+    
+    .footer{
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: 
+        'versand f-header f-header f-header'
+        'kontakt kontakt column1 column1'
+        'column2 column2 column3 column3'
+        'club club club club'
+        'sozial-media app-download app-download app-download';
+    }
 }
